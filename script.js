@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const listItem = document.createElement('li');
-        listItem.textContent = taskText;
+
+        const taskSpan = document.createElement('span');
+        taskSpan.textContent = taskText;
 
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
@@ -22,8 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
             taskList.removeChild(listItem);
         };
 
+        listItem.appendChild(taskSpan);
         listItem.appendChild(removeButton);
         taskList.appendChild(listItem);
+
         taskInput.value = '';
     }
 
