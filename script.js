@@ -12,9 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const listItem = document.createElement('li');
-
-        const taskSpan = document.createElement('span');
-        taskSpan.textContent = taskText;
+        listItem.textContent = taskText;
 
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
@@ -24,16 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
             taskList.removeChild(listItem);
         };
 
-        listItem.appendChild(taskSpan);
         listItem.appendChild(removeButton);
         taskList.appendChild(listItem);
-
         taskInput.value = '';
     }
 
     addButton.addEventListener('click', addTask);
 
-    taskInput.addEventListener('keydown', function (event) {
+    taskInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             addTask();
         }
